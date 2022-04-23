@@ -1,0 +1,29 @@
+[16,21,11,8,12,22] Aşama-1
+Dizinin ortadaki elemanı seçilir ve diziyi 2'ye böleriz.
+[16,21,11] ve [8,12,22]
+Bu alt dizileri de böleriz. En küçük yapı taşı 1 ve 2 olana kadar işlem devam eder.
+Çıkan alt diziler.
+1--- [16]
+2--- [21,11]
+3--- [8]
+4--- [12,22]
+Kendi içinde büyüklük kontrolü 2 ve 4 numara içerisinde yapılır. Sadece 2.de yerler değiştirilir.
+1--- [16]
+2--- [11,21]
+3--- [8]
+4--- [12,22]
+Sonraki adım tekrar bu alt dizinleri birleştirmeye başlamaktır.
+1 ve 2; 3 ve 4 için birleştirme yapılır. 2 alt dizinin en küçük üyeleri (en soldaki) karşılaştırılır.
+1 ve 2 numara için konuşursak 11 16'dan küçük olcağı için yerleri değiştirilir. Öncesinde 11 ve 21 arasındaki ilişki kontrol edildiği için tekrar bu işlem yapılmaz!
+3 ve 4 numaralar için bakılır ise 8 ve 12 arasında bir değişiklik yapılmaz. Yani 4.dizi 3'ün en sağ kısmından birleştirilir.
+Şimdi bu birleştirme sonrasında oluşan dizilere AA ve BB diyeceğim.
+AA--- [11,16,21]
+BB--- [8,12,22]
+AA ve BB birleştirilirken öncelikle bunların en küçük elemanları karşılaştırılır.
+8, 11'den küçük olduğuna göre [8 ? ? ? ? ?] şeklinde hayali yazılabilir.
+Sonraki adım 8 den sonra gelen boşluk yer için BB'nin 2.elemanını karşılaştırmak. 12, 11'den büyük olduğu için [8,11,12 ? ? ?] şeklinde yazılır.
+Son adım olarak BB'nin 3.elamanı kalmıştır. BB'nin 3.elemanı AA'nın 3.elemanı ile karşılaştırılır. 
+Output olarak [8,11,12,16,21,22] dizini sıralanmıştır.
+
+
+Big O gösterimi: O(nlogn) dir. Her bi dallanma 2 üzeri x den gelmektektedir. Ayrıca her bir dal üzerinde n kere karşılaştırma yapılabilir.
